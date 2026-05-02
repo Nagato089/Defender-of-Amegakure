@@ -544,22 +544,6 @@ export function getRandomColor() {
 
 export default botConfig;
 
-// Example: !rename @user NewName
-if (message.content.startsWith('!rename')) {
-    const member = message.mentions.members.first();
-    const newName = message.content.split(' ').slice(2).join(' ');
-
-    if (!member) return message.reply("Please mention a member.");
-    if (!newName) return message.reply("Please provide a new nickname.");
-
-    try {
-        await member.setNickname(newName);
-        message.channel.send(`Successfully changed nickname for ${member.user.tag}`);
-    } catch (err) {
-        console.error(err);
-        message.reply("I don't have permission to change that user's nickname.");
-    }
-}
 
 
 
